@@ -2,6 +2,8 @@
  * Rough and ugly binary counter implementation
  * on Arduino Duemilanove, using four leds.
  * This isn't really C/C++.
+ * The counting follows the following pattern:
+ * 1,2,1,3,1,2,1,4,1,2,1,3,1,2,1 + all off.
  */
 
 int leds[] = { 12, 11, 10, 9 };

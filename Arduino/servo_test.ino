@@ -2,7 +2,7 @@
  * and the center of the 180 degree
  * movement area of 3001HB analog servo.
  * The code provided 'as-is', with no warranty.
- * Ilkka Jylhä & Lauri Peltomäki
+ * GPLv2, 2013 Ilkka Jylhä & Lauri Peltomäki
  */
 
 int servoPin = 13;

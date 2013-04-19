@@ -24,6 +24,6 @@ void loop() {
     digitalWrite(servoPin, LOW);
     delayMicroseconds(i);
     Serial.println(i);
-    delay(10);  // 10 microsec
+    delay(10);  // 10 ms
   }
 }

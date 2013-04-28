@@ -36,21 +36,21 @@ void owl() {
 }
 
 
+// We test if certain bytes are received and perform accordingly.
 void loop() {
-    // send data only when you receive data:
-    if (Serial.available() > 0) {
-        incomingByte = Serial.read();
-		if (incomingByte == 49) {               // Ascii "1"
-			    cat(); 	
-			    digitalWrite(catLed, HIGH); 
-			    digitalWrite(owlLed, LOW); 
-			} else if (incomingByte == 53) {    // Ascii "5"
-			    owl();
-			    digitalWrite(catLed, LOW);
-			    digitalWrite(owlLed, HIGH); 
-			} else {
-			    digitalWrite(catLed, LOW);
-			    digitalWrite(owlLed, LOW);
+    if (Serial.available() > 0) {
+        incomingByte = Serial.read();
+        if (incomingByte == 49) {           // Ascii "1"
+            cat(); 	
+            digitalWrite(catLed, HIGH); 
+            digitalWrite(owlLed, LOW); 
+        } else if (incomingByte == 53) {    // Ascii "5"
+            owl();
+            digitalWrite(catLed, LOW);
+            digitalWrite(owlLed, HIGH); 
+        } else {
+            digitalWrite(catLed, LOW);
+            digitalWrite(owlLed, LOW);
         }
-    }
+    }
 }

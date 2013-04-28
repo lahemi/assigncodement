@@ -1,18 +1,16 @@
-/* Using HY-SRF05 ultrasonic sensor, five leds and
- * Arduino Duemilanove, we made a contraption that
- * lights up the leds according to the distance
- * registered by the sensor.
+/* Using HY-SRF05 ultrasonic sensor, five leds and Arduino Duemilanove,
+ * we made a contraption that lights up the leds according to the
+ * distance registered by the sensor.
  * The code provided is 'as-is', with no warranty.
  * GPLv2, 2013 Ilkka Jylhä & Lauri Peltomäki
+ * Revised, second version.
  */
 
-#define ECHOPIN 2                            // Pin to receive echo pulse
-#define TRIGPIN 3                            // Pin to send trigger pulse
-
+const int ECHOPIN = 2;        // Echo pulse
+const int TRIGPIN = 3;        // Trigger pulse
 int leds[] = {13, 12, 11, 10, 9};
 int ledCount = 5; 
 int i;
-
 
 void setup() {
     for(i = 0; i < ledCount; i++) {
@@ -31,8 +29,7 @@ void allOff() {
 
 /* We turn off all the leds before turning on the required amount
  * leds, in order to avoid the need to test how many leds are on
- * or having to separately turn off only the lit up leds on each
- * each. This saves some code and makes things a bit simpler. */
+ * or having to separately turn off only the lit up leds */
 void otherOn(int choice) {
     allOff();
     switch(choice) {
@@ -65,28 +62,29 @@ void otherOn(int choice) {
  * http://www.robot-electronics.co.uk/files/arduino_srf04.ino
  * and to print the distance of perceived object in cm. */
 void loop() {
-    digitalWrite(TRIGPIN, LOW);         // Set the trigger pin to low for 2uS
+    // Sending extremely short sound pulse.
+    digitalWrite(TRIGPIN, LOW);
     delayMicroseconds(2);
-    digitalWrite(TRIGPIN, HIGH);        // Send a 10uS high to trigger ranging
+    digitalWrite(TRIGPIN, HIGH);
     delayMicroseconds(10);
-    digitalWrite(TRIGPIN, LOW);         // Send pin low again
+    digitalWrite(TRIGPIN, LOW);
     
-    int dis = pulseIn(ECHOPIN, HIGH);   // Read in times pulse
-    dis = dis/58;                       // Calculate distance from time of pulse
-    Serial.println(dis);
+    int distance = pulseIn(ECHOPIN, HIGH);  // Time between pulse sent and received.
+    distance = distance/58;                 // Speed of sound is 29 ms/cm.
+                                            // d/29/2=d/(29*2)=d/58
+    Serial.println(distance);
 
-    // Changing the amount of lit leds according to distance.
-    if(dis == 0) {
+    if(distance == 0) {
         allOff();
-    } else if(dis <= 3) {
+    } else if(distance <= 3) {
         otherOn(5);
-    } else if(dis > 3 && dis <= 6) {
+    } else if(distance > 3 && distance <= 6) {
         otherOn(4);
-    } else if(dis > 7 && dis <= 9) {
+    } else if(distance > 7 && distance <= 9) {
         otherOn(3);
-    } else if(dis > 10 && dis <= 14) {
+    } else if(distance > 10 && distance <= 14) {
         otherOn(2);
-    } else if(dis > 15 && dis <= 20) {
+    } else if(distance > 15 && distance <= 20) {
         otherOn(1);
     } else {
         allOff();

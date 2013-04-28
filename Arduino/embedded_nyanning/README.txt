@@ -12,6 +12,10 @@ Small project that got out of hand.
 catread.py
 creates a .txt file, into which it appends
 what ever the script happens to read from the serial port.
+We used it to read data from this:
+https://github.com/lahemi/assigncodement/blob/master/Arduino/ultrasonic_leds.ino
+Our earlier little project, ultrasonic sensors and leds.
+
 
 pywrite.py and asciiread.ino
 

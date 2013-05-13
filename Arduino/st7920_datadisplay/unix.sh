@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Unix time, Year-OrdinalDate-H:M:S
+# GPLv2, 2013, Ilkka Jylhä & Lauri Peltomäki
 
 # Command fails without 'echo'. Odd.
 FUN=$(echo ""|\

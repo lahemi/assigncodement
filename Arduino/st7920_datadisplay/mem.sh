@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # See: man proc
+# GPLv2, 2013, Ilkka Jylhä & Lauri Peltomäki
 
 data=$(awk 'NR' /proc/meminfo)
 

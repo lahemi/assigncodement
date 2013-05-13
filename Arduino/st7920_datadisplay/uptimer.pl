@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# GPLv2, 2013, Ilkka Jylhä & Lauri Peltomäki
 
 use strict;
 use warnings;

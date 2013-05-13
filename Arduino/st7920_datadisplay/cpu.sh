@@ -2,6 +2,7 @@
 # See: man proc
 # Bug. Some issues with updating the value if
 # the script is not run continuously in a loop.
+# GPLv2, 2013, Ilkka Jylhä & Lauri Peltomäki
 
 # Get data, discarding string "cpu" from the beginning.
 CPU=$(awk 'NR' /proc/stat|\

@@ -1,0 +1,98 @@
+Babysteps: Setup
+
+There are a great deal of different implementations of
+The Editor, Vi. We will use a more elaborate and modern
+variation called Vim, Vi IMproved.
+
+
+Zero - Insert and normal.
+
+The grandness of editing in Vim are its modes.
+There are several, but we are now concerned
+only with the two main modes, insert and normal.
+
+Unlike with most editors, in fact, with most things where you input
+text, Vim isn't all about just placing the text and then struggling
+to do something with it. That is the reason, why Vim's main mode is
+in fact, the normal mode. The mode in which the text is before you
+and your sole and only purpose is to act upon this text.
+
+Because of this, because of modes, a single keystroke that would
+otherwise be used to insert text, as it's done in almost every other
+place, is used to do the editor commands. And this is Vim's greatest
+strength. This creates a language and a world of it's own.
+
+Vim starts in normal mode. To enter the
+insert mode, issue one single command:
+
+i
+
+To return to normal mode, press the Escape key.
+
+
+First - Disabling the arrow keys. This'll ensure you'll
+        stay away from them. Use hjkl instead.
+
+vim ~/.vimrc
+
+And add lines:
+
+imap <up>    <nop>
+imap <down>  <nop>
+imap <left>  <nop>
+imap <right> <nop>
+map  <up>    <nop>
+map  <down>  <nop>
+map  <left>  <nop>
+map  <right> <nop>
+
+And return to normal mode and save with ZZ.
+
+
+Second - Try and stay away from the mouse.
+
+
+Third - More configuration.
+
+Open .vimrc again, and add these.
+
+filetype indent on
+
+syntax on
+set title
+set hlsearch
+set ruler
+set number
+set nocompatible
+set showcmd
+
+set autoindent
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
+And again, save with ZZ in normal mode.
+
+The lower block is not "that necessary", but we set it, because
+hardtabs are evil, real men use spaces. With these settings, if
+you press tab, it'll automagically input 4 spaces instead.
+
+Nocompatible isn't strictly needed, though we set it just in
+case, to locally override possible global settings.
+
+As an extra, you could do a little extra mapping:
+imap kj <esc>
+
+In insert mode, if you press k and j in quick
+succession, it'll act as if you press escape.
+I use this one myself. A lot.
+
+
+Fourth - :help is your friend. Vim comes with a
+         comprehensive builtin documentation, use it!
+
+As an exercise, go give a cursory glance of the help texts
+for those things we just set in the configuration file.
+
+
+Next part will be about basic navigation in normal mode.

@@ -1,0 +1,139 @@
+Babysteps: Navigation
+
+(C-somekey means Control+somekey)
+
+
+Zero - Instead of arrow keys. Also, letters.
+
+We disabled the arrow keys in the last part.
+However shall we move the cursor around now!
+
+There is a great deal of commands just for navigation in Vim,
+so naturally we will only look at a few basic ones.
+
+As mentioned, use h j k and l instead.
+
+h   left
+j   down
+k   up
+l   right
+
+Your hands at the home row, feel the lack of movement. No need
+to reach your hand far of to the right, no need to break your
+flow by moving your hand off of the working position.
+
+Use these a lot, you'll get used to them faster than you might
+think. Some conventional software utilize these same keybindings
+(many Vi keybindings in fact) too. For example, try piping
+something to less and feel the power!
+
+But hjkl are just the first step to a better life, to liberation
+from under the evils of arrow keys and related demons.
+
+There are also couple other important
+basic movement commands for letters.
+
+f<char>     move forward on top of the next
+            occurence of the given chararacter
+F<char>     move backward on top of the next
+            occurence of the given chararacter
+t<char>     move forward right before the next
+            occurence of the given chararacter
+T<char>     move backward right after the next
+            occurence of the given chararacter
+
+You will later learn the true potential of those "find"
+character commands when we do some actual editing.  
+
+
+First - Lines. My kingdom for lines.
+
+If you need to move several lines to some direction, try
+using some other commands, after you've encountered them,
+for navigation instead of just j and k.
+
+Lines are important. Lines rule text. Code is really just text.
+Simply put, you handle text first by single characters, then by
+words separated either by whitespaces or special characters and
+finally, the first greater more "complicated type", a unit of
+text is a line. Then there's paragraphs and the whole of the
+text and so forth of course.
+
+0       move to the beginning of the line
+$       move to the end of the line
+
+You can go to a specific line with a couple of different commands.
+
+<num>G       move the cursor to the line given by the number
+<num>gg      move the cursor to the line given by the number
+
+G       move to the last line of the file
+gg      move to the first line of the file
+
+There's three nice "shortcut" movement commands,
+which act on the visible area on the screen.
+
+H       move the cursor to the top of the visible area
+M       move the cursor to the middle of the visible area
+L       move the cursor to the bottom of the visible area
+
+Extra:
+There is also the original command mode in Vim.
+You can enter it by typing colon, :
+:<num>  moves the cursor to the line given by the number
+
+
+Second - Words don't really make sense, yet they govern our lives.
+
+Instead of using h and l for moving left and right all the
+time you probably want to move back and forth word by word.
+
+w   move forward to the beginning of the next word, naive
+W   move forward to the beginning of the next word, proper
+e   move forward to the end of the word, if at the end of
+    a word already, move to the end of the next word, naive
+E   move forward to the end of the word, if at the end of
+    a word already, move to the end of the next word, proper
+b   move backward to the beginning of the word, if already
+    at the beginning of the word, move to the beginning of
+    the previous word, naive
+B   move backward to the beginning of the word, if already
+    at the beginning of the word, move to the beginning of
+    the previous word, proper
+ge  move to the end of the previous word, naive
+gE  move to the end of the previous word, proper
+
+"naive" means here that both whitespaces and special
+characters are considered to separate the words.
+"proper" means here that only whitespaces
+are considered to separate the words.
+
+
+Third - Shake that screen.
+
+C-e     move the screen/view down one line
+C-y     move the screen/view up one line
+
+C-d     move the screen/view down half screen
+C-u     move the screen/view up half screen
+
+C-f     move the screen/view down a screenful
+C-b     move the screen/view up a screenful
+
+Try out these a little by for example opening the previous
+file babysteps_setup and just moving around.
+(These work in less, too!)
+
+These are actually amongst the rarer vim commands,
+as they use a modifier key in they binding.
+
+As with the H, M and L commands, there's equivalent
+commands for moving the focus of the visible area.
+
+zt      move the focus of the visible area
+        so that the cursor is at the top
+zz      move the focus of the visible area
+        so that the cursor is at the middle
+zb      move the focus of the visible area
+        so that the cursor is at the bottom
+
